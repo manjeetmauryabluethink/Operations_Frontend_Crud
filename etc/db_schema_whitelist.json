@@ -1,0 +1,15 @@
+{
+    "register_table": {
+        "column": {
+            "id": true,
+            "name": true,
+            "email": true,
+            "telephone": true,
+            "status": true,
+            "stu_id": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

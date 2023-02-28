@@ -1,0 +1,63 @@
+<?php $editData = $block->editMember();
+   ?>
+<div class="row">
+   <div class="col-md-8">
+      <form name="addData" method="post" id="addData" class="form"
+         action="<?= $block->getFormAction(); ?>"
+         data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+         data-mage-init='{"validation":{}}'>
+         <fieldset class="fieldset">
+            <legend class="legend"><span><?= $block->escapeHtmlAttr(__('Register Here')) ?></span></legend>
+            <fieldset class="fieldset row">
+               <div class="fields col-md-6">
+
+               <input name="id" id="id" title="Member's id" value="<?= ($editData->getId())? $editData->getId():''?>"  type="hidden" >
+                     
+                  <div class="field name required">
+                     <label class="label" for="title"><span><?= $block->
+                        escapeHtmlAttr(__('Name')) ?></span></label>
+                     <div class="control">
+                        <input name="name" id="name" title="Name"  class="input-text" type="text"
+                           value='<?php echo ($editData->getName())? $editData->getName():'';?>'
+                           data-validate="{required:true, 'validate-alphanum-with-spaces':true}">
+                     </div>
+                  </div>
+                  <div class="field name required">
+                     <label class="label" for="title"><span><?= $block->
+                        escapeHtmlAttr(__('Email')) ?></span></label>
+                     <div class="control">
+                        <input name="email" id="email" title="Email"  class="input-text" type="text"
+                           value='<?php echo ($editData->getEmail())? $editData->getEmail():'';?>'
+                           data-validate="{required:true, 'validate-email':true}">
+                     </div>
+                  </div>
+                  <div class="field name required">
+                     <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Telephone')) ?></span></label>
+                     <div class="control">
+                        <input name="telephone" id="telephone" title="Telephone"  class="input-text"
+                           type="text"  value='<?php echo ($editData->getTelephone())? $editData->getTelephone():'';?>' data-validate="{required:true}">
+                     </div>
+                  </div>
+                  <div class="field name ">
+                     <label class="label" for="status"><span><?= $block->
+                        escapeHtmlAttr(__('Status')) ?></span></label>
+                     <div class="control">
+                        <select name="status">
+                           <option value="1"   value='<?php echo ($editData->getStatus()==1)? 'selected':'';?>' >Active</option>
+                           <option value="0"  value='<?php echo ($editData->getStatus()==0)? 'selected':'';?>'>Inactive</option>
+                        </select>
+                     </div>
+                  </div>
+               </div>
+            </fieldset>
+         </fieldset>
+         <div class="actions-toolbar">
+            <div class="primary">
+               <button type="submit" class="action submit primary" title="Save"  ><span><?= $block->
+                  escapeHtmlAttr(__('Submit')) ?></span></button>
+            </div>
+         </div>
+      </form>
+   </div>
+</div>
+<br><br>

@@ -1,0 +1,54 @@
+<?php $members = $block->getMember();
+if ($members->count()) {
+?>
+
+    <table class="data table table-order-items "> 
+        <caption class="table-caption">Add Data</caption>
+        <thead>
+        <tr>
+            <th><?php echo __('ID') ?></th>
+            <th><?php echo __('Name') ?></th>
+            <th><?php echo __('Email') ?></th>
+            <th><?php echo __('TelePhone') ?></th>
+            <th><?php echo __('Status') ?></th>
+            <th><?php echo __('Action') ?></th>
+        </tr>
+        </thead>
+   <tbody>
+    
+    <?php
+     foreach($members as $key=>$item)
+    {
+        ?>
+        <tr>
+        <td>
+        <?php echo $item->getId(); ?>
+        </td>
+        <td >
+        <?php echo $item->getName(); ?>
+        </td>
+        <td>
+        <?php echo $item->getEmail(); ?>
+        </td>
+        <td>
+        <?php echo $item->getTelephone();?>
+        </td>
+        <td>
+        <?php echo $item->getStatus();?>
+        </td>
+        <td>
+        <a href='<?php echo $this->getUrl('blue/index/delete/id/'.$item->getId(), ['_secure' => true])?>'>Delete</a>
+        &nbsp; &nbsp;
+        <a href='<?php echo $this->getUrl('blue/index/index/id/'.$item->getId(), ['_secure' => true])?>'>Edit</a> &nbsp; &nbsp;
+        <a href='<?php echo $this->getUrl('blue/index/viewdata/id/'.$item->getId(), ['_secure' => true])?>'>View</a>
+        </td>
+    </tr>
+<?php 
+    }
+    ?>
+  </tbody>
+</table>
+    <?php 
+}
+?>
+
